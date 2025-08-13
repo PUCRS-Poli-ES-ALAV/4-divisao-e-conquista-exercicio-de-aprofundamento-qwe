@@ -1,0 +1,20 @@
+mergeSort
+32 números      = 1ms    , 63 recursões
+2048 números    = 19ms   , 4095 recursões 
+1048576 números = 95330ms, 2097151 recursões
+_____________________________
+
+maxValA
+32 números      = 0ms, 31 recursões
+2048 números    = 0ms, 2047 recursões
+1048576 números = 8ms, 1048576 recursões
+
+maxValB
+32 números      = 0ms , 45 recursões
+2048 números    = 1ms , 2733 recursões
+1048576 números = 13ms, 1398103 recursões
+_____________________________
+
+multiply
+
+não funciona kKKKKKKKKKKKKKKKKKKKKKKKKKK
