@@ -13,8 +13,20 @@ maxValB
 32 números      = 0ms , 45 recursões
 2048 números    = 1ms , 2733 recursões
 1048576 números = 13ms, 1398103 recursões
+
+maxValC
+32 números      = 0ms, 31 recursões
+2048 números    = 1ms, 2047 recursões
+1048576 números = 12ms, 1048575 recursões
 _____________________________
 
 multiply
 
 não funciona kKKKKKKKKKKKKKKKKKKKKKKKKKK
+_____________________________
+
+powA
+Base 151313 Potencia 18125 = 1ms, 18125 recursões
+
+powB
+Base 151313 Potencia 18125 = 5ms, 65535 recursões

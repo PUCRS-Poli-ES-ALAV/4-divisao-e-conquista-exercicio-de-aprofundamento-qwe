@@ -2,7 +2,6 @@ package div_conq;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Random;
 
 public class App 
 {
@@ -10,18 +9,47 @@ public class App
     public static void main( String[] args )
     {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Input: ");
+        System.out.print("Base: ");
         int n = sc.nextInt();
+        System.out.print("Potencia: ");
+        int m = sc.nextInt();
         sc.close();
-        ArrayList<Integer> al = new ArrayList<>();
-        for (int i = 0; i < n; i++) al.add((int)Math.random());
+        // ArrayList<Integer> al = new ArrayList<>();
+        // long[] arr = new long[n];
+        // for (int i = 0; i < n; i++) arr[i] = ((int)Math.random());
 
-        System.out.println("Trabalhando");
+        System.out.println("Trabalhando - powA");
         long start = System.currentTimeMillis();
-        mergeSort(al);
+        // mergeSort(al);
+        // maxValC(arr, 0, n-1);
+        powA(n, m);
         long end = System.currentTimeMillis();
         System.out.println("Elapsed: " + (end - start) + "ms");
         System.out.println("Recursoes: " + recurs);
+        
+        recurs = 0;
+        System.out.println("Trabalhando - powB");
+        start = System.currentTimeMillis();
+        powB(n, m);
+        end = System.currentTimeMillis();
+        System.out.println("Elapsed: " + (end - start) + "ms");
+        System.out.println("Recursoes: " + recurs);
+    }
+
+    private static int powA(int a, int n) {
+        int p = 1;
+        for (int i = 0; i < n; i++) {
+            p *= a;
+            recurs++;
+        }
+        return p;
+    }
+
+    private static int powB(int a, int n) {
+        recurs++;
+        if (n == 0) return 1;
+        if (n % 2 == 0) return powB(a, n/2) * powB(a, n/2);
+        return powB(a, (n-1)/2) * powB(a, (n-1)/2) * a; 
     }
 
     private static long multiply(long x, long y, long n) {
@@ -62,6 +90,16 @@ public class App
         long v2 = maxValB(a, m + 1, end - 1);
 
         return Math.max(v1, v2);
+    }
+
+    private static long maxValC (long a[], int init, int end) {
+        recurs++;
+        if (end - init <= 1) return Math.max(a[init], a[end]);
+
+        int m = (init + end) / 2;
+        long v1 = maxValC(a, init, m);
+        long v2 = maxValC(a, m+1, end);
+        return Math.max(v1,v2);
     }
 
     private static ArrayList<Integer> mergeSort (ArrayList<Integer> al) {
