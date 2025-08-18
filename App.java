@@ -1,5 +1,3 @@
-package div_conq;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
